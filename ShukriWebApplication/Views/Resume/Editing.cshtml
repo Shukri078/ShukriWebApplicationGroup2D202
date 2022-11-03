@@ -1,0 +1,176 @@
+﻿@model ShukriWebApplication.Models.Schedule
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="col-11 mx-auto pt-0">
+    <div class="card">
+        <div class="card-header bg-primary text-uppercase text-white" style="height:45px;">
+            <h4>Edit Class Details</h4>
+        </div>
+        <form enctype="multipart/form-data" asp-action="Editing">
+            <div class="row">
+                <div class="col-md-6">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ClassName" class="control-label"></label>
+                        <input asp-for="ClassName" class="form-control" />
+                        <span asp-validation-for="ClassName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ClassDescription" class="control-label"></label>
+                        <input asp-for="ClassDescription" class="form-control" />
+                        <span asp-validation-for="ClassDescription" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="LectureName" class="control-label"></label>
+                        <input asp-for="LectureName" class="form-control" />
+                        <span asp-validation-for="LectureName" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+           
+
+
+      
+
+
+                <div class="col-md-6">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="form-control" type="date" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <input asp-for="EndDate" class="form-control" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="StartTime" class="control-label"></label>
+                        <input asp-for="StartTime" class="form-control" />
+                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="EndTime" class="control-label"></label>
+                        <input asp-for="EndTime" class="form-control" />
+                        <span asp-validation-for="EndTime" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <!--EXPTABLE-->
+                <div class="col-md-12" hidden>
+                    <table id="ExpTable" class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+
+
+                                <th colspan="8">List Of Booking Student</th>
+                                    
+                                
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Experiences.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        <input asp-for="@Model.Experiences[i].BkClassName" class="form-control" >
+                                    </td>
+                                    <td>
+                                        <input asp-for="@Model.Experiences[i].BkClassDescription" class="form-control" >
+                                    </td>
+                                    <td>
+                                        <input asp-for="@Model.Experiences[i].BkLectureName" class="form-control" >
+                                    </td>
+
+
+
+                                    <td>
+                                        <input asp-for="@Model.Experiences[i].BkStartDate" class="form-control" >
+                                    </td>
+                                    <td>
+                                        <input asp-for="@Model.Experiences[i].BkEndDate" class="form-control" >
+                                    </td>
+                                    <td>
+                                        <input asp-for="@Model.Experiences[i].BkStartTime" class="form-control" >
+                                    </td>
+                                    <td>
+                                        <input asp-for="@Model.Experiences[i].BkEndTime" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input asp-for="@Model.Experiences[i].BookingName" class="form-control">
+                                    </td>
+
+                                    <td>
+ @*                                       <button id='btnadd' type="button" class="btn btn-sm btn-secondary visible"
+                                            onclick="AddItem(this)">
+                                            Add
+                                        </button>
+
+                                        <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger"
+                                            onclick="DeleteItem(this)">
+                                            Delete
+                                        </button>*@
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <intput type="hideen" id="hdnLastIndex" value="0" />
+
+                <div class="col-12 btn-group">
+                    <div class="col-6 form-group text-right p-2">
+                        <a asp-action="Index" class="btn btn-secondary">&nbsp;Back&nbsp;</a>
+                    </div>
+                    <div class="col-6 form-group text-left p-2">
+                        <input type="submit" value="Yes" class="btn btn-outline-success" />
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+}
+
+
+

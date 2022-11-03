@@ -1,0 +1,72 @@
+﻿<!--BOKINGGGG PAGE-->
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*     <th>
+            @Html.DisplayNameFor(model => model.Applicant)
+            </th>*@
+@*            <th>
+                @Html.DisplayNameFor(model => model.BkClassName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BkClassDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BkLectureName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BkStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BkStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BkEndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingName)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*         <td>
+            @Html.DisplayFor(modelItem => item.Applicant.Id)
+            </td>*@
+@*                <td>
+                    @Html.DisplayFor(modelItem => item.BkClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BkClassDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BkLectureName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BkStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BkStartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BkEndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingName)
+                </td>*@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ExperienceId" class="btn btn-danger">Delete</a>
+                    @*<a asp-action="Details" asp-route-id="@item.ExperienceId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ExperienceId">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

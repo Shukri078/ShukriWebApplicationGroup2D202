@@ -1,0 +1,69 @@
+﻿@model ShukriWebApplication.Models.Booking
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ExperienceId" />
+            <div class="form-group">
+       
+                <select asp-for="ApplicantId" class="form-control" asp-items="ViewBag.ApplicantId" hidden></select>
+                <span asp-validation-for="ApplicantId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <input asp-for="BkClassName" class="form-control" value="" hidden />
+                <span asp-validation-for="BkClassName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <input asp-for="BkClassDescription" class="form-control" value="" hidden />
+                <span asp-validation-for="BkClassDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+           
+                <input asp-for="BkLectureName" class="form-control" value="" hidden />
+                <span asp-validation-for="BkLectureName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               
+                <input value="" asp-for="BkStartDate" class="form-control" hidden />
+                <span asp-validation-for="BkStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              
+                <input value="" asp-for="BkStartTime" class="form-control" hidden />
+                <span asp-validation-for="BkStartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               
+                <input value="" asp-for="BkEndTime" class="form-control" hidden />
+                <span asp-validation-for="BkEndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              
+                <input value="" asp-for="BookingName" class="form-control" hidden/>
+                <span asp-validation-for="BookingName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
